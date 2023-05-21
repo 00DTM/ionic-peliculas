@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
-import { Pelicula, RespuestaMDB } from '../interfaces/interfaces';
+import { Pelicula } from '../interfaces/interfaces';
 
 @Component({
   selector: 'app-tab1',
@@ -15,7 +15,7 @@ export class Tab1Page implements OnInit{
 
   ngOnInit(){
     this.moviesService.getFeature()
-      .subscribe( (resp: RespuestaMDB) => {
+      .subscribe( resp => {
 
         console.log('Resp', resp);
         this.peliculasRecientes = resp.results;
