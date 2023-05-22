@@ -1,17 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content>
+  <!-- <ion-list *ngFor="let pelicula of peliculasRecientes">
+    <ion-card>
+      <img [src]="pelicula.backdrop_path | imagen">
+      <ion-card-header>
+        <ion-card-subtitle>{{pelicula.original_title}}</ion-card-subtitle>
+        <ion-card-title>{{pelicula.title}}</ion-card-title> -->
+        
+      <!-- </ion-card-header>
+    </ion-card> -->
+    <ion-card>
+      <ion-card-content>
+        <ion-list *ngFor="let pelicula of peliculasRecientes">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img [src]="pelicula.backdrop_path | imagen">
+            </ion-thumbnail>
+            <ion-label>{{pelicula.original_title}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+  </ion-card>
+  <!-- </ion-list> -->
 </ion-content>

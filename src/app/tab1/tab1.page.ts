@@ -7,18 +7,18 @@ import { Pelicula } from '../interfaces/interfaces';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
 
-  constructor( private moviesService: MoviesService) {}
+  constructor(private movieService: MoviesService) {}
 
   ngOnInit(){
-    this.moviesService.getFeature()
-      .subscribe( resp => {
-
+    this.movieService.getFeature()
+      .subscribe(resp =>{
         console.log('Resp', resp);
         this.peliculasRecientes = resp.results;
-      });
+      })
   }
+
 }
