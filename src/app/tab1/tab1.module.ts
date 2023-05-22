@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { PipesModule } from '../pipes/pipes.module';
     Tab1PageRoutingModule,
     PipesModule
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Tab1PageModule {}

@@ -9,7 +9,7 @@
       <!-- </ion-card-header>
     </ion-card> -->
       <!-- </ion-list> -->
-      <ion-grid fixed>
+      <!-- <ion-grid fixed>
         <ion-row>
           <ion-col>
             <h3>Peliculas nuevas</h3>
@@ -27,6 +27,22 @@
           </ion-item>
         </ion-list>
       </ion-card-content>
-  </ion-card>
+  </ion-card> -->
+
+  <swiper-container slides-per-view="1.2"
+                    free-mode="true">
+                  
+    <swiper-slide *ngFor="let pelicula of peliculasRecientes">
+      <ion-card>
+        <img [src]="pelicula.backdrop_path | imagen">
+        <ion-card-title class="ion-text-center">{{pelicula.title}}</ion-card-title>
+      </ion-card>
+    </swiper-slide>
+¡
+    
+  </swiper-container>
+
+
+  
 
 </ion-content>

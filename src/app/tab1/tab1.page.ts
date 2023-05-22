@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
 import { Pelicula } from '../interfaces/interfaces';
+import { register } from 'swiper/element';
 
+register();
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
