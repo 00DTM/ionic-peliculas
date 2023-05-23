@@ -12,6 +12,7 @@ register();
 export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
+  populares: Pelicula[] = [];
 
   constructor(private movieService: MoviesService) {}
 
@@ -21,6 +22,13 @@ export class Tab1Page implements OnInit {
         console.log('Resp', resp);
         this.peliculasRecientes = resp.results;
       })
+
+
+      this.movieService.getPopulares()
+        .subscribe(resp => {
+          console.log('Populares', resp);
+          this.populares = resp.results;
+        })
   }
 
 }
