@@ -1,8 +1,8 @@
 <swiper-container slides-per-view="1.2" free-mode="true">
   <swiper-slide *ngFor="let pelicula of peliculas">
-    <ion-card>
+    <ion-card (click)="verDetalle(pelicula.id)">
       <img [src]="pelicula.backdrop_path | imagen">
-      <ion-card-title class="ion-text-center">{{pelicula.title}}</ion-card-title>
+      <!-- <ion-card-title class="ion-text-center">{{pelicula.title}}</ion-card-title> -->
     </ion-card>
   </swiper-slide>
 </swiper-container>
