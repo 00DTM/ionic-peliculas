@@ -17,4 +17,6 @@ export class SlideshowBackdropComponent  implements OnInit {
 
   ngOnInit() {}
 
+
+
 }
