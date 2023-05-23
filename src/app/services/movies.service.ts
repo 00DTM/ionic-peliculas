@@ -13,7 +13,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  private ejecutarQuery<T> (query: string){
+  private ejecutarQuery<T>(query: string) {
     query = URL + query;
     query += `&api_key=${apiKey}&language=es`
 
@@ -23,23 +23,21 @@ export class MoviesService {
   getFeature() {
 
     const hoy = new Date();
-    const ultimoDia = new Date( hoy.getFullYear(), hoy.getMonth() + 1, 0 ).getDate();
-    const mes = hoy.getMonth() +1 ;
+    const ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate();
+    const mes = hoy.getMonth() + 1;
 
     let mesString;
 
-    if(mes < 10){
+    if (mes < 10) {
       mesString = '0' + mes;
 
-    }else{
+    } else {
       mesString = mes;
 
     }
 
-    const inicio = `${hoy.getFullYear() }-${mesString}-01`;
-
-    const fin = `${hoy.getFullYear() }-${mesString}-${ultimoDia}`;
-
+    const inicio = `${hoy.getFullYear()}-${mesString}-01`;
+    const fin = `${hoy.getFullYear()}-${mesString}-${ultimoDia}`;
 
     return this.ejecutarQuery<RespuestaMDB>(`/discover/movie?primary_release_date.gte=${inicio}&primary_release_date.lte=${fin}`);
 
