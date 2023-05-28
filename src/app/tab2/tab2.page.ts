@@ -7,6 +7,15 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  textoBuscar = '';
+  ideas: string[] = ['Spidermar', 'Vengadores', 'La vida es bella']
   constructor() {}
+
+  buscar(event: any){
+    console.log(event);
+    const valor = event.detail.value;
+  }
+
+  
 
 }

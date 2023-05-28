@@ -1,17 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Buscar película
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-toolbar>
+  <ion-searchbar  placeholder="Buscar pelicula"
+                  (ionChange)="buscar($event)" 
+                  [debounce]="700" 
+                  [value]="textoBuscar">
+  </ion-searchbar>
+</ion-toolbar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center"><ion-spinner name="bubbles"></ion-spinner></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list-header>
+    <ion-label>Ideas</ion-label>
+    <!-- <ion-button>See All</ion-button> -->
+  </ion-list-header>
+<ion-list>
+  <ion-item *ngFor="let idea of ideas"
+            (click)="textoBuscar = idea">
+    <ion-label>{{idea}}</ion-label>
+  </ion-item>
+</ion-list>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>
