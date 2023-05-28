@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PeliculaDetalle } from 'src/app/interfaces/interfaces';
+import { ModalController } from '@ionic/angular';
+import { Cast, PeliculaDetalle } from 'src/app/interfaces/interfaces';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -12,8 +13,10 @@ export class DetalleComponent implements OnInit {
   @Input() id: any;
 
   pelicula: PeliculaDetalle;
+  actores: Cast[] = [];
+  oculto = 150;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private modalController: ModalController) { }
 
   ngOnInit() {
     this.moviesService.getPeliculaDetalle(this.id)
@@ -25,6 +28,13 @@ export class DetalleComponent implements OnInit {
     this.moviesService.getActoresPelicula(this.id)
       .subscribe(resp => {
         console.log(resp);
+        this.actores = resp.cast;
       })
   }
+
+  regresar(){
+    this.modalController.dismiss();
+  }
+
+  favorito(){}
 }
