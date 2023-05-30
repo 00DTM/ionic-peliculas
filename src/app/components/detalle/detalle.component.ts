@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Cast, PeliculaDetalle } from 'src/app/interfaces/interfaces';
+import { DataLocalService } from 'src/app/services/data-local.service';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class DetalleComponent implements OnInit {
   actores: Cast[] = [];
   oculto = 150;
 
-  constructor(private moviesService: MoviesService, private modalController: ModalController) { }
+  constructor(private moviesService: MoviesService, private modalController: ModalController, private dataLocal: DataLocalService) { }
 
   ngOnInit() {
     this.moviesService.getPeliculaDetalle(this.id)
@@ -36,5 +37,7 @@ export class DetalleComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  favorito(){}
+  favorito(
+    this.dataLocal.guardarPelicula(this.peliculas);
+  ){}
 }
