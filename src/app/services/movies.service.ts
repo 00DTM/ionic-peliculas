@@ -64,7 +64,7 @@ export class MoviesService {
   }
 
   buscarPeliculas (texto: string){
-    return this.ejecutarQuery(`/search/movie?query=${texto}`);
+    return this.ejecutarQuery<RespuestaMDB>(`/search/movie?query=${texto}`);
   }
 
 }

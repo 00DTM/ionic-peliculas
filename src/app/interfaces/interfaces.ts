@@ -99,4 +99,4 @@ export interface PeliculaDetalle {
     order: number;
     profile_path: string;
   }
-  
+
